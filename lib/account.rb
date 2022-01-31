@@ -41,14 +41,16 @@ class Account
   end
 
   def record_to_string(record)
+    date_token = "#{record[:date]} "
     credit_token = record[:credit] ? " #{display_format(record[:credit])} " : " "
     debit_token = record[:debit] ? " #{display_format(record[:debit])} " : " "
+    balance_token = " #{display_format(record[:balance])}"
 
     return [
-      "#{record[:date]} ",
+      date_token,
       credit_token,
       debit_token,
-      " #{display_format(record[:balance])}"
+      balance_token
     ].join("||")
   end
 
