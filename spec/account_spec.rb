@@ -2,10 +2,10 @@
 require 'account'
 
 describe Account do
-  describe '#print_balance' do
-    it 'should display the current balance' do
+  describe '#balance' do
+    it 'should display the current balance to 2 decimal places' do
       account = Account.new(100)
-      expect(account.print_balance).to eq('100') 
+      expect(account.balance).to eq('100.00') 
     end
   end
 
@@ -13,7 +13,7 @@ describe Account do
     it 'should add the specified amount to the balance' do
       account = Account.new
       account.deposit(120)
-      expect(account.print_balance).to eq('120')
+      expect(account.balance).to eq('120.00')
     end
   end
   
@@ -21,7 +21,7 @@ describe Account do
     it 'should deduct the specified amount from the balance' do
       account = Account.new(100)
       account.withdraw(50)
-      expect(account.print_balance).to eq('50')
+      expect(account.balance).to eq('50.00')
     end
   end
 

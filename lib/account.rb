@@ -16,8 +16,8 @@ class Account
   end
 
   # Queries
-  def print_balance
-    return @balance.to_s
+  def balance
+    return display_format(@balance)
   end
 
   def print_statement
@@ -26,7 +26,6 @@ class Account
       record_to_string(record)
     }
     return header + record_string.join("\n")
-
   end
 
   private
@@ -38,12 +37,15 @@ class Account
       balance: @balance
     }
     amount > 0 ? record[:credit] = amount : record[:debit] = -amount
-
     @records.append(record)
   end
 
   def record_to_string(record)
-    return "#{record[:date]} || #{record[:credit]} || #{record[:debit]} || #{record[:balance]}"
+    return "#{display_format(record[:date])} || #{display_format(record[:credit])} || #{display_format(record[:debit])} || #{display_format(record[:balance])}"
+  end
+
+  def display_format(amount)
+    return "%.2f" % amount
   end
 
 end
