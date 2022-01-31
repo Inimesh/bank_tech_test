@@ -1,16 +1,18 @@
 class Account
   def initialize(init_balance=0)
     @records = []
-    @balance = 0; deposit(init_balance)
+    @balance = 0; deposit(init_balance) if init_balance != 0
   end
 
   # Commands
   def deposit(amount)
     @balance += amount
+    gen_record(amount)
   end
 
   def withdraw(amount)
     @balance -= amount
+    gen_record(-amount)
   end
 
   # Queries
@@ -35,9 +37,13 @@ class Account
       debit: nil,
       balance: @balance
     }
-    amount > 0 ? record[credit] = amount : record[debit] = amount
+    amount > 0 ? record[:credit] = amount : record[:debit] = -amount
 
     @records.append(record)
+  end
+
+  def record_to_string(record)
+    return "#{record[:date]} || #{record[:credit]} || #{record[:debit]} || #{record[:balance]}"
   end
 
 end
