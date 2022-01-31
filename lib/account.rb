@@ -53,7 +53,7 @@ class Account
   end
 
   def display_format(amount)
-    return "%.2f" % amount if amount
+    return "%.2f" % amount
   end
 
 end
