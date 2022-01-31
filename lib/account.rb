@@ -41,7 +41,15 @@ class Account
   end
 
   def record_to_string(record)
-    return "#{record[:date]} || #{display_format(record[:credit])} || #{display_format(record[:debit])} || #{display_format(record[:balance])}"
+    credit_token = record[:credit] ? " #{display_format(record[:credit])} " : " "
+    debit_token = record[:debit] ? " #{display_format(record[:debit])} " : " "
+
+    return [
+      "#{record[:date]} ",
+      credit_token,
+      debit_token,
+      " #{display_format(record[:balance])}"
+    ].join("||")
   end
 
   def display_format(amount)
