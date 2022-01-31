@@ -20,7 +20,7 @@ class Account
     return display_format(@balance)
   end
 
-  def print_statement
+  def statement
     header = "date || credit || debit || balance\n"
     record_string = @records.reverse_each.map{ |record|
       record_to_string(record)

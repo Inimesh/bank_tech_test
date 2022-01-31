@@ -35,7 +35,7 @@ describe Account do
       allow(Time).to receive(:now).and_return(Time.new(2023, 1, 14))
       account.withdraw(500)
 
-      expect(account.print_statement).to eq(
+      expect(account.statement).to eq(
         <<~HEREDOC.chomp
         date || credit || debit || balance
         14/01/2023 || || 500.00 || 2500.00
