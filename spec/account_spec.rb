@@ -16,6 +16,14 @@ describe Account do
       expect(account.print_balance).to eq('120')
     end
   end
+  
+  describe '#withdraw' do
+    it 'should deduct the specified amount from the balance' do
+      account = Account.new(100)
+      account.withdraw(50)
+      expect(account.print_balance).to eq('50')
+    end
+  end
 
 
 end

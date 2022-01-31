@@ -6,6 +6,10 @@ class Account
   def deposit(amount)
     @balance += amount
   end
+
+  def withdraw(amount)
+    @balance -= amount
+  end
   
   def print_balance
     return @balance.to_s
