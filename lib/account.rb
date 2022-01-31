@@ -41,11 +41,11 @@ class Account
   end
 
   def record_to_string(record)
-    return "#{display_format(record[:date])} || #{display_format(record[:credit])} || #{display_format(record[:debit])} || #{display_format(record[:balance])}"
+    return "#{record[:date]} || #{display_format(record[:credit])} || #{display_format(record[:debit])} || #{display_format(record[:balance])}"
   end
 
   def display_format(amount)
-    return "%.2f" % amount
+    return "%.2f" % amount if amount
   end
 
 end
