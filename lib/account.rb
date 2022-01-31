@@ -1,7 +1,7 @@
 class Account
   def initialize(init_balance=0)
     @records = []
-    @balance = 0; deposit(init_balance) if init_balance != 0
+    @balance = 0.00; deposit(init_balance) if init_balance != 0
   end
 
   # Commands
