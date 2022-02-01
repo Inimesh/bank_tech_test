@@ -18,36 +18,12 @@ class Account
   end
 
   # Queries
-  def balance
-    return display_format(@balance)
+  def print_balance(typesetter_class=Typesetter)
+    print typesetter_class.balance(@balance)
   end
 
-  def statement
-    header = "date || credit || debit || balance\n"
-    record_string = @records.reverse_each.map{ |record|
-      record_to_string(record)
-    }
-    return header + record_string.join("\n")
-  end
-
-  private
-
-  def record_to_string(record)
-    date_token = "#{record[:date]} "
-    credit_token = record[:credit] ? " #{display_format(record[:credit])} " : " "
-    debit_token = record[:debit] ? " #{display_format(record[:debit])} " : " "
-    balance_token = " #{display_format(record[:balance])}"
-
-    return [
-      date_token,
-      credit_token,
-      debit_token,
-      balance_token
-    ].join("||")
-  end
-
-  def display_format(amount)
-    return "%.2f" % amount
+  def print_statement(typesetter_class=Typesetter)
+    print typesetter_class.statement(@record.store)
   end
 
 end
