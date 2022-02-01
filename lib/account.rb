@@ -17,4 +17,13 @@ class Account
     @record.generate_record(-amount, @balance)
   end
 
+  # Queries
+  def print_balance(typesetter_class=Typesetter)
+    print typesetter_class.balance(@balance)
+  end
+
+  def print_statement(typesetter_class=Typesetter)
+    print typesetter_class.statement(@record.store)
+  end
+
 end

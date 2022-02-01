@@ -15,7 +15,7 @@ describe Account do
       record = instance_double("Record", generate_record: true)
       account = Account.new(0, record)
       account.deposit(120)
-      expect(account.balance).to eq('120.00')
+      expect { account.print_balance }.to output('120.00').to_stdout
     end
     
     it 'should call its instance of Record to generate a record' do
@@ -31,7 +31,7 @@ describe Account do
       record = instance_double("Record", generate_record: true)
       account = Account.new(0, record)
       account.withdraw(50)
-      expect(account.balance).to eq('-50.00')
+      expect { account.print_balance }.to output('-50.00').to_stdout
     end
 
     it 'should call its instance of Record to generate a record' do
