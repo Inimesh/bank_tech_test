@@ -1,15 +1,16 @@
 require 'printer'
 
 describe Printer do
-  describe '#print_statement' do
+  describe '.print_statement' do
     it 'returns a full statement as a string' do
-      account = Account.new
-      allow(Time).to receive(:now).and_return(Time.new(2023, 1, 10))
-      account.deposit(1000)
-      allow(Time).to receive(:now).and_return(Time.new(2023, 1, 13))
-      account.deposit(2000)
-      allow(Time).to receive(:now).and_return(Time.new(2023, 1, 14))
-      account.withdraw(500)
+      # TODO Turn this Time mocking into feature test
+      # account = Account.new
+      # allow(Time).to receive(:now).and_return(Time.new(2023, 1, 10))
+      # account.deposit(1000)
+      # allow(Time).to receive(:now).and_return(Time.new(2023, 1, 13))
+      # account.deposit(2000)
+      # allow(Time).to receive(:now).and_return(Time.new(2023, 1, 14))
+      # account.withdraw(500)
 
       expect(account.statement).to eq(
         <<~HEREDOC.chomp
@@ -22,7 +23,7 @@ describe Printer do
     end
   end
 
-  describe '#print_balance' do
+  describe '.print_balance' do
     it 'should display the current balance to 2 decimal places' do
       account = Account.new(100)
       expect(account.balance).to eq('100.00') 
