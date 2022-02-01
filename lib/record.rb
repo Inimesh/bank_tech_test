@@ -14,6 +14,7 @@ class Record
     }
     amount > 0 ? record[:credit] = amount : record[:debit] = -amount
     @store.append(record)
+    return record
   end
 
 end
