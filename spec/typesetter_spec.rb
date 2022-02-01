@@ -1,6 +1,6 @@
-require 'printer'
+require 'Typesetter'
 
-describe Printer do
+describe Typesetter do
   describe '.statement' do
     it 'returns a full statement as a string' do
       # TODO Turn this Time mocking into feature test

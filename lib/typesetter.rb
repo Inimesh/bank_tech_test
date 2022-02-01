@@ -1,5 +1,5 @@
 # The function of this class is to convert data into printable strings
-class Printer
+class Typesetter
 
   def self.statement(account)
     header = "date || credit || debit || balance\n"
