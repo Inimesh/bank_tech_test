@@ -3,13 +3,6 @@ require 'account'
 require 'record'
 
 describe Account do
-
-  # TODO Maybe use this block to refactor tests to be more concise
-  # before(:each) do
-  #   record = instance_double("Record", generate_record: true)
-  #   account = Account.new(0, record)
-  # end
-
   describe '#deposit' do
     it 'should add the specified amount to the balance' do
       account = Account.new()
