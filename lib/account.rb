@@ -1,5 +1,8 @@
 require 'record.rb'
+require 'typesetter.rb'
 
+# The function of this class is to keep a record of an account balance and facilitate
+# deposits and withdrawals. The balance and an account statement can also be printed to stdout.
 class Account
   def initialize(init_balance=0, record_obj=Record.new)
     @record = record_obj

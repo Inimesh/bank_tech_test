@@ -1,3 +1,4 @@
+# The function of this class is to generate and store records of transactions in an account
 class Record
   attr_reader :store
   

@@ -1,4 +1,4 @@
-require 'Typesetter'
+require 'typesetter'
 
 describe Typesetter do
   describe '.statement' do
