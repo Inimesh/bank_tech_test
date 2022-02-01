@@ -12,8 +12,7 @@ describe Account do
 
   describe '#deposit' do
     it 'should add the specified amount to the balance' do
-      record = instance_double("Record", generate_record: true)
-      account = Account.new(0, record)
+      account = Account.new()
       account.deposit(120)
       expect { account.print_balance }.to output('120.00').to_stdout
     end
@@ -28,8 +27,7 @@ describe Account do
   
   describe '#withdraw' do
     it 'should deduct the specified amount from the balance' do
-      record = instance_double("Record", generate_record: true)
-      account = Account.new(0, record)
+      account = Account.new()
       account.withdraw(50)
       expect { account.print_balance }.to output('-50.00').to_stdout
     end
