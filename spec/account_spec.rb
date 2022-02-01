@@ -40,4 +40,11 @@ describe Account do
     end
   end
 
+  describe '#print_statement' do
+    it 'prints the account balance to stdout' do
+      expect { subject.print_statement }.to output().to_stdout
+    end
+    
+  end
+
 end
