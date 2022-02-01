@@ -3,7 +3,7 @@ class Typesetter
 
   def self.statement(record)
     header = "date || credit || debit || balance\n"
-    record_string = record.reverse_each.map{ |transaction|
+    record_string = record.reverse_each.map { |transaction|
       transaction_to_string(transaction)
     }
     return header + record_string.join("\n")
@@ -13,13 +13,11 @@ class Typesetter
     return format_display(balance)
   end
 
-  private
-
-  def self.format_display(amount)
+  private_class_method def self.format_display(amount)
     return "%.2f" % amount
   end
 
-  def self.transaction_to_string(transaction)
+  private_class_method def self.transaction_to_string(transaction)
     date_token = "#{transaction[:date]} "
     credit_token = transaction[:credit] ? " #{format_display(transaction[:credit])} " : " "
     debit_token = transaction[:debit] ? " #{format_display(transaction[:debit])} " : " "
