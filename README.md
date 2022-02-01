@@ -8,6 +8,11 @@ Language - Ruby
 Testing framework - rspec
 
 ---
+## Configuration
+To install dependencies by running the following in the parent directory:
+`bundle install`
+
+---
 ## Usage
 Start irb and load the file by running in parent directory:
 `irb -r ./lib/account.rb`
@@ -29,12 +34,12 @@ account.withdraw(amount)
 
 To view the current balance
 ```ruby
-account.balance
+account.print_balance
 ```
 
 To print a formatted statement
 ```ruby
-puts account.statement
+account.print_statement
 ```
 
 ---
