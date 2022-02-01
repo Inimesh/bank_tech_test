@@ -29,16 +29,6 @@ class Account
   end
 
   private
-  def gen_record(amount)
-    record = {
-      date: Time.now.strftime("%d/%m/%Y"),
-      credit: nil,
-      debit: nil,
-      balance: @balance
-    }
-    amount > 0 ? record[:credit] = amount : record[:debit] = -amount
-    @records.append(record)
-  end
 
   def record_to_string(record)
     date_token = "#{record[:date]} "
