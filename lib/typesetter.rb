@@ -1,9 +1,9 @@
 # The function of this class is to convert data into printable strings
 class Typesetter
 
-  def self.statement(account)
+  def self.statement(record)
     header = "date || credit || debit || balance\n"
-    record_string = account.record.store.reverse_each.map{ |transaction|
+    record_string = record.reverse_each.map{ |transaction|
       transaction_to_string(transaction)
     }
     return header + record_string.join("\n")
@@ -21,9 +21,9 @@ class Typesetter
 
   def self.transaction_to_string(transaction)
     date_token = "#{transaction[:date]} "
-    credit_token = transaction[:credit] ? " #{display_format(transaction[:credit])} " : " "
-    debit_token = transaction[:debit] ? " #{display_format(transaction[:debit])} " : " "
-    balance_token = " #{display_format(transaction[:balance])}"
+    credit_token = transaction[:credit] ? " #{format_display(transaction[:credit])} " : " "
+    debit_token = transaction[:debit] ? " #{format_display(transaction[:debit])} " : " "
+    balance_token = " #{format_display(transaction[:balance])}"
 
     return [
       date_token,
