@@ -1,7 +1,7 @@
 require 'printer'
 
 describe Printer do
-  describe '.print_statement' do
+  describe '.statement' do
     it 'returns a full statement as a string' do
       # TODO Turn this Time mocking into feature test
       # account = Account.new
@@ -23,7 +23,7 @@ describe Printer do
     end
   end
 
-  describe '.print_balance' do
+  describe '.balance' do
     it 'should display the current balance to 2 decimal places' do
       account = Account.new(100)
       expect(account.balance).to eq('100.00') 

@@ -1,15 +1,16 @@
+# The function of this class is to convert data into printable strings
 class Printer
 
-  def self.print_statement
+  def self.statement(account)
     header = "date || credit || debit || balance\n"
-    record_string = @records.reverse_each.map{ |record|
-      record_to_string(record)
+    record_string = account.record.store.reverse_each.map{ |transaction|
+      transaction_to_string(transaction)
     }
     return header + record_string.join("\n")
   end
 
-  def self.print_balance
-    return display_format(@balance)
+  def self.balance(balance)
+    return format_display(balance)
   end
 
   private
@@ -18,11 +19,11 @@ class Printer
     return "%.2f" % amount
   end
 
-  def self.record_to_string(record)
-    date_token = "#{record[:date]} "
-    credit_token = record[:credit] ? " #{display_format(record[:credit])} " : " "
-    debit_token = record[:debit] ? " #{display_format(record[:debit])} " : " "
-    balance_token = " #{display_format(record[:balance])}"
+  def self.transaction_to_string(transaction)
+    date_token = "#{transaction[:date]} "
+    credit_token = transaction[:credit] ? " #{display_format(transaction[:credit])} " : " "
+    debit_token = transaction[:debit] ? " #{display_format(transaction[:debit])} " : " "
+    balance_token = " #{display_format(transaction[:balance])}"
 
     return [
       date_token,
